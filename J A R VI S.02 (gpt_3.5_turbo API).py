@@ -68,7 +68,8 @@ available_functions = {
     "get_order_details": get_order_details,
 }
 responses = {
-   "how are you": "i'm great ! , thanks for asking",
+"what is the date": str(datetime.datetime.now().date()),
+"how are you": "i'm great ! , thanks for asking",
 "do you have sisters" : "no sir , i'm the only child of my develpers untill now",
 "do you have sisters ?" : "no sir , i'm the only child of my develpers untill now",
 "do you have sisters?" : "no sir , i'm the only child of my develpers untill now",
@@ -318,6 +319,9 @@ class JarvisGUI:
         self.engine.runAndWait()
 
     def get_gpt3_response(self, user_input):
+        if "what is the date" in user_input.lower():
+            return str(datetime.datetime.now().date())
+
         messages = [
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": user_input},
@@ -331,6 +335,8 @@ class JarvisGUI:
         )
 
         return chat_completion.choices[0].message["content"]
+
+
 
         try:
             user_input = self.recognizer.recognize_google(audio).lower()
