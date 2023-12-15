@@ -220,7 +220,7 @@ class JarvisGUI:
             import traceback
             traceback.print_exc()
 
-    def get_gpt3_response(self, user_input):
+    def get_response(self, user_input):
         openai.api_key = api_key
         response = openai.Completion.create(
             engine="text-davinci-002",
