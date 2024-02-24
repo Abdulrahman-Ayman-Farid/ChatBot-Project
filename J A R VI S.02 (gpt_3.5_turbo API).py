@@ -32,7 +32,7 @@ functions = [
 def get_order_details(order_id):
     # URL of the internal API endpoint
     url = "http://44.203.99.19:8005/order_info_without_auth"
-    openai.api_key = "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"
+    openai.api_key = "PUT_YOUR_OPENAI_API_TOKEN"
 
     
     # Parameters to be sent in the query string
